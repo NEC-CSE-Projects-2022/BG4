@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 215 25% 27%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 199 89% 94%;
+    --accent-foreground: 199 89% 32%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 199 89% 48%;
+
+    --radius: 0.75rem;
+
+    --medical-blue: 199 89% 48%;
+    --medical-light: 199 89% 96%;
+    --medical-dark: 199 89% 32%;
+    --clinical-gray: 210 20% 98%;
+  }
+
+  .dark {
+    --background: 215 25% 10%;
+    --foreground: 210 40% 98%;
+
+    --card: 215 25% 13%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 215 25% 13%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 25% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 25% 20%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 199 89% 20%;
+    --accent-foreground: 199 89% 80%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 25% 20%;
+    --input: 215 25% 20%;
+    --ring: 199 89% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .medical-card {
+    @apply bg-card rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow duration-300;
+  }
+
+  .medical-button {
+    @apply bg-primary text-primary-foreground font-medium px-6 py-3 rounded-lg hover:opacity-90 transition-all duration-200 shadow-sm;
+  }
+
+  .medical-button-outline {
+    @apply border-2 border-primary text-primary font-medium px-6 py-3 rounded-lg hover:bg-primary hover:text-primary-foreground transition-all duration-200;
+  }
+
+  .pipeline-step {
+    @apply flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-300;
+  }
+
+  .pipeline-step-active {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .pipeline-step-completed {
+    @apply bg-accent text-accent-foreground;
+  }
+
+  .pipeline-step-pending {
+    @apply bg-muted text-muted-foreground;
+  }
+
+  .gauge-normal {
+    @apply text-success;
+  }
+
+  .gauge-warning {
+    @apply text-warning;
+  }
+
+  .gauge-danger {
+    @apply text-destructive;
+  }
+
+  .section-title {
+    @apply text-2xl font-semibold text-foreground mb-4;
+  }
+
+  .gradient-medical {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(199 89% 60%) 100%);
+  }
+}
+
+@layer utilities {
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
